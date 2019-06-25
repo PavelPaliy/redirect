@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="formLink" action="generate">
+    <label>Введите ссылку</label>
+    <input type = "text" name = 'link'>
+    <input type = "submit">
+</form>
+<div id="info"></div>
+<script src="src/Views/Templates/js/jquery-3.4.1.min.js"></script>
+<script>
+    $(function() {
+        $('form#formLink').submit(function(event) {
+            event.preventDefault();
+            var form = $(this);
+            var url = form.attr('action');
+            $.ajax({
+               type:"GET",
+                url:url,
+                data:form.serialize(),
+                success: function(data)
+                {
+                    $("#info").append(data);
+                }
+
+            });
+        });
+    });
+</script>
+</body>
+</html>
