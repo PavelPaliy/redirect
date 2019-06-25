@@ -2,7 +2,7 @@
 
 
 namespace redirect\src\Models;
-include('/var/www/redirect.loc/config.php');
+include($_SERVER['DOCUMENT_ROOT']."/config.php");
 
 class Generator
 {
