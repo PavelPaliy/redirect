@@ -19,7 +19,7 @@ class Generator
     public function addAlias($link)
     {
         try {
-            $dbh = new \PDO('mysql:host=localhost;dbname=links', USER, PASS);
+            $dbh = new \PDO('mysql:host='.HOST.';dbname='.DBNAME, USER, PASS);
             $str = self::generate();
             $stmtAl = $dbh->prepare("SELECT * from links where alias= :str;");
             $stmtAl->execute(['str' => $str]);
